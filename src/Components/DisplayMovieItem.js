@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`
 	background-color: #3498db;
@@ -16,13 +17,19 @@ const DisplayMovieItem = ({
 	setMovieItems,
 	movieItems,
 	category,
+	setSelectedItem,
 }) => {
-	const [charName, setCharName] = useState();
+	const [char, setChar] = useState({});
+
+	const clickItemHandler = () => {
+		setSelectedItem(char);
+	};
+
 	useEffect(() => {
 		axios
 			.get(item)
 			.then((res) => {
-				setCharName(res.data.name);
+				setChar(res.data);
 				setMovieItems((movieItems) => ({
 					...movieItems,
 					[title]: {
@@ -38,7 +45,11 @@ const DisplayMovieItem = ({
 				console.log(error);
 			});
 	}, [item]);
-	return <StyledDiv>{charName}</StyledDiv>;
+	return (
+		<Link to={`/${char.name}`}>
+			<StyledDiv onClick={clickItemHandler}>{char.name}</StyledDiv>
+		</Link>
+	);
 };
 
 export default DisplayMovieItem;

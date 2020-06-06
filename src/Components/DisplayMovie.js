@@ -10,7 +10,12 @@ const StyledItems = styled.div`
 	margin: 1rem;
 `;
 
-const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
+const DisplayMovie = ({
+	selectedMovie,
+	setMovieItems,
+	movieItems,
+	setSelectedItem,
+}) => {
 	if (!selectedMovie.title) {
 		return <div>Please select a movie</div>;
 	}
@@ -29,6 +34,7 @@ const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
 							setMovieItems={setMovieItems}
 							movieItems={movieItems}
 							category='characters'
+							setSelectedItem={setSelectedItem}
 						/>
 					);
 				})}
@@ -44,6 +50,7 @@ const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
 							setMovieItems={setMovieItems}
 							movieItems={movieItems}
 							category='planets'
+							setSelectedItem={setSelectedItem}
 						/>
 					);
 				})}
@@ -59,6 +66,7 @@ const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
 							setMovieItems={setMovieItems}
 							movieItems={movieItems}
 							category='starships'
+							setSelectedItem={setSelectedItem}
 						/>
 					);
 				})}
@@ -74,6 +82,7 @@ const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
 							setMovieItems={setMovieItems}
 							movieItems={movieItems}
 							category='vehicles'
+							setSelectedItem={setSelectedItem}
 						/>
 					);
 				})}
