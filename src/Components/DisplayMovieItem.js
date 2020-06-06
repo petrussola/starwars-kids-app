@@ -10,18 +10,34 @@ const StyledDiv = styled.div`
 	border-radius: 4px;
 `;
 
-const DisplayMovieItem = ({ char }) => {
+const DisplayMovieItem = ({
+	item,
+	title,
+	setMovieItems,
+	movieItems,
+	category,
+}) => {
 	const [charName, setCharName] = useState();
 	useEffect(() => {
 		axios
-			.get(char)
+			.get(item)
 			.then((res) => {
 				setCharName(res.data.name);
+				setMovieItems((movieItems) => ({
+					...movieItems,
+					[title]: {
+						...movieItems[title],
+						[category]: {
+							...movieItems[title][category],
+							[res.data.name]: res.data,
+						},
+					},
+				}));
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-	}, [char]);
+	}, [item]);
 	return <StyledDiv>{charName}</StyledDiv>;
 };
 

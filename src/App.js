@@ -13,9 +13,19 @@ import DisplayMovie from './Components/DisplayMovie';
 // helpers
 import config from './config';
 
+const initial = {
+	'A New Hope': {},
+	'The Empire Strikes Back': {},
+	'Return of the Jedi': {},
+	'The Phantom Menace': {},
+	'Attack of the Clones': {},
+	'Revenge of the Sith': {},
+};
+
 function App() {
 	const [movies, setMovies] = useState([]);
 	const [selectedMovie, setSelectedMovie] = useState({});
+	const [movieItems, setMovieItems] = useState(initial);
 
 	useEffect(() => {
 		axios
@@ -31,7 +41,11 @@ function App() {
 		<div className='App'>
 			<Header />
 			<MovieSelector movies={movies} setSelectedMovie={setSelectedMovie} />
-			<DisplayMovie selectedMovie={selectedMovie} />
+			<DisplayMovie
+				selectedMovie={selectedMovie}
+				setMovieItems={setMovieItems}
+				movieItems={movieItems}
+			/>
 		</div>
 	);
 }

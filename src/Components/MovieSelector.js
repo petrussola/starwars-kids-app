@@ -8,7 +8,6 @@ const StyledDiv = styled.div`
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-	/* margin: 1rem 2rem; */
 	border-bottom: 1px solid #777;
 `;
 

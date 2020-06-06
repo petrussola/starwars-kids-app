@@ -10,7 +10,7 @@ const StyledItems = styled.div`
 	margin: 1rem;
 `;
 
-const DisplayMovie = ({ selectedMovie }) => {
+const DisplayMovie = ({ selectedMovie, setMovieItems, movieItems }) => {
 	if (!selectedMovie.title) {
 		return <div>Please select a movie</div>;
 	}
@@ -20,26 +20,62 @@ const DisplayMovie = ({ selectedMovie }) => {
 			<p>{selectedMovie.opening_crawl}</p>
 			<h4>Characters:</h4>
 			<StyledItems>
-				{selectedMovie.characters.map((char) => {
-					return <DisplayMovieItem char={char} key={char} />;
+				{selectedMovie.characters.map((item) => {
+					return (
+						<DisplayMovieItem
+							item={item}
+							key={item}
+							title={selectedMovie.title}
+							setMovieItems={setMovieItems}
+							movieItems={movieItems}
+							category='characters'
+						/>
+					);
 				})}
 			</StyledItems>
 			<h4>Planets:</h4>
 			<StyledItems>
-				{selectedMovie.planets.map((char) => {
-					return <DisplayMovieItem char={char} key={char} />;
+				{selectedMovie.planets.map((item) => {
+					return (
+						<DisplayMovieItem
+							item={item}
+							key={item}
+							title={selectedMovie.title}
+							setMovieItems={setMovieItems}
+							movieItems={movieItems}
+							category='planets'
+						/>
+					);
 				})}
 			</StyledItems>
 			<h4>Starships:</h4>
 			<StyledItems>
-				{selectedMovie.starships.map((char) => {
-					return <DisplayMovieItem char={char} key={char} />;
+				{selectedMovie.starships.map((item) => {
+					return (
+						<DisplayMovieItem
+							item={item}
+							key={item}
+							title={selectedMovie.title}
+							setMovieItems={setMovieItems}
+							movieItems={movieItems}
+							category='starships'
+						/>
+					);
 				})}
 			</StyledItems>
 			<h4>Vehicles:</h4>
 			<StyledItems>
-				{selectedMovie.vehicles.map((char) => {
-					return <DisplayMovieItem char={char} key={char} />;
+				{selectedMovie.vehicles.map((item) => {
+					return (
+						<DisplayMovieItem
+							item={item}
+							key={item}
+							title={selectedMovie.title}
+							setMovieItems={setMovieItems}
+							movieItems={movieItems}
+							category='vehicles'
+						/>
+					);
 				})}
 			</StyledItems>
 		</div>
