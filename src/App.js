@@ -10,24 +10,15 @@ import './App.css';
 import Header from './Components/Header';
 import MovieSelector from './Components/MovieSelector';
 import DisplayMovie from './Components/DisplayMovie';
-import DisplayItem from './Components/DisplayItem';
+import SelectedItemKey from './Components/SelectedItemKey';
 
 // helpers
 import config from './config';
 
-const initial = {
-	'A New Hope': {},
-	'The Empire Strikes Back': {},
-	'Return of the Jedi': {},
-	'The Phantom Menace': {},
-	'Attack of the Clones': {},
-	'Revenge of the Sith': {},
-};
-
 function App() {
 	const [movies, setMovies] = useState([]);
 	const [selectedMovie, setSelectedMovie] = useState({});
-	const [movieItems, setMovieItems] = useState(initial);
+	const [movieItemsCache, setMovieItemsCache] = useState({});
 	const [selectedItem, setSelectedItem] = useState({});
 
 	useEffect(() => {
@@ -61,8 +52,8 @@ function App() {
 					<DisplayMovie
 						{...props}
 						selectedMovie={selectedMovie}
-						setMovieItems={setMovieItems}
-						movieItems={movieItems}
+						setMovieItemsCache={setMovieItemsCache}
+						movieItemsCache={movieItemsCache}
 						setSelectedItem={setSelectedItem}
 					/>
 				)}
@@ -70,10 +61,12 @@ function App() {
 			<Route
 				path='/:name'
 				render={(props) => (
-					<DisplayItem
+					<SelectedItemKey
 						{...props}
 						selectedItem={selectedItem}
 						selectedMovie={selectedMovie}
+						movieItemsCache={movieItemsCache}
+						setMovieItemsCache={setMovieItemsCache}
 					/>
 				)}
 			/>

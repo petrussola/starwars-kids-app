@@ -12,8 +12,8 @@ const StyledItems = styled.div`
 
 const DisplayMovie = ({
 	selectedMovie,
-	setMovieItems,
-	movieItems,
+	movieItemsCache,
+	setMovieItemsCache,
 	setSelectedItem,
 }) => {
 	if (!selectedMovie.title) {
@@ -30,10 +30,8 @@ const DisplayMovie = ({
 						<DisplayMovieItem
 							item={item}
 							key={item}
-							title={selectedMovie.title}
-							setMovieItems={setMovieItems}
-							movieItems={movieItems}
-							category='characters'
+							setMovieItemsCache={setMovieItemsCache}
+							movieItemsCache={movieItemsCache}
 							setSelectedItem={setSelectedItem}
 						/>
 					);
@@ -46,10 +44,8 @@ const DisplayMovie = ({
 						<DisplayMovieItem
 							item={item}
 							key={item}
-							title={selectedMovie.title}
-							setMovieItems={setMovieItems}
-							movieItems={movieItems}
-							category='planets'
+							setMovieItemsCache={setMovieItemsCache}
+							movieItemsCache={movieItemsCache}
 							setSelectedItem={setSelectedItem}
 						/>
 					);
@@ -62,10 +58,8 @@ const DisplayMovie = ({
 						<DisplayMovieItem
 							item={item}
 							key={item}
-							title={selectedMovie.title}
-							setMovieItems={setMovieItems}
-							movieItems={movieItems}
-							category='starships'
+							setMovieItemsCache={setMovieItemsCache}
+							movieItemsCache={movieItemsCache}
 							setSelectedItem={setSelectedItem}
 						/>
 					);
@@ -78,10 +72,8 @@ const DisplayMovie = ({
 						<DisplayMovieItem
 							item={item}
 							key={item}
-							title={selectedMovie.title}
-							setMovieItems={setMovieItems}
-							movieItems={movieItems}
-							category='vehicles'
+							setMovieItemsCache={setMovieItemsCache}
+							movieItemsCache={movieItemsCache}
 							setSelectedItem={setSelectedItem}
 						/>
 					);

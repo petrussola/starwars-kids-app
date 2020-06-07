@@ -13,10 +13,8 @@ const StyledDiv = styled.div`
 
 const DisplayMovieItem = ({
 	item,
-	title,
-	setMovieItems,
-	movieItems,
-	category,
+	movieItemsCache,
+	setMovieItemsCache,
 	setSelectedItem,
 }) => {
 	const [char, setChar] = useState({});
@@ -26,25 +24,24 @@ const DisplayMovieItem = ({
 	};
 
 	useEffect(() => {
-		axios
-			.get(item)
-			.then((res) => {
-				setChar(res.data);
-				setMovieItems((movieItems) => ({
-					...movieItems,
-					[title]: {
-						...movieItems[title],
-						[category]: {
-							...movieItems[title][category],
-							[res.data.name]: res.data,
-						},
-					},
-				}));
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}, [item]);
+		if (!movieItemsCache[item]) {
+			axios
+				.get(item)
+				.then((res) => {
+					setChar(res.data);
+					// sets the item in the cache
+					// key is the link and value is res.data returned by the api call
+					setMovieItemsCache((movieItemsCache) => {
+						return { ...movieItemsCache, [item]: res.data };
+					});
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		} else {
+			setChar(movieItemsCache[item]);
+		}
+	}, []);
 	return (
 		<Link to={`/${char.name}`}>
 			<StyledDiv onClick={clickItemHandler}>{char.name}</StyledDiv>
