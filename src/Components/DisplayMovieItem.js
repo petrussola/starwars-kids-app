@@ -20,7 +20,7 @@ const DisplayMovieItem = ({
 	const [char, setChar] = useState({});
 
 	const clickItemHandler = () => {
-		setSelectedItem(char);
+		setSelectedItem({ ...char, media: [] });
 	};
 
 	useEffect(() => {

@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// HELPERS
+import { axiosWithBase, baseURL } from '../Axios/axios';
 
 // COMPONENTS
 import SelectedItemValue from './SelectedItemValue';
 
 const SelectedItemKey = ({
 	selectedItem,
+	setSelectedItem,
 	selectedMovie,
 	movieItemsCache,
 	setMovieItemsCache,
 }) => {
+	useEffect(() => {
+		axiosWithBase()
+			.get(`${baseURL}?q=${selectedItem.name}`)
+			.then((res) => {
+				// res.data.value is an array , 35 items
+				// data can be found inside the contentUrl property
+				setSelectedItem({ ...selectedItem, media: res.data.value });
+			})
+			.catch((error) => {
+				debugger;
+			});
+	}, []);
+
 	const noGo = [
 		'species',
 		'pilots',
@@ -20,6 +37,7 @@ const SelectedItemKey = ({
 		'starships',
 		'vehicles',
 		'homeworld',
+		'media',
 	];
 	const keys = Object.keys(selectedItem).filter((nameProperty) => {
 		return !noGo.includes(nameProperty);

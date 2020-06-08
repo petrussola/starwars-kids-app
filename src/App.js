@@ -64,6 +64,7 @@ function App() {
 					<SelectedItemKey
 						{...props}
 						selectedItem={selectedItem}
+						setSelectedItem={setSelectedItem}
 						selectedMovie={selectedMovie}
 						movieItemsCache={movieItemsCache}
 						setMovieItemsCache={setMovieItemsCache}
