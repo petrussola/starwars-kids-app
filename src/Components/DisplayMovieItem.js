@@ -21,6 +21,10 @@ const DisplayMovieItem = ({
 
 	const clickItemHandler = () => {
 		setSelectedItem({ ...char, media: [] });
+		localStorage.setItem(
+			'selectedItem',
+			JSON.stringify({ ...char, media: [] })
+		);
 	};
 
 	useEffect(() => {
