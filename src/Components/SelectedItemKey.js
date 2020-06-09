@@ -64,7 +64,7 @@ const SelectedItemKey = ({
 				);
 			})
 			.catch((error) => {
-				debugger;
+				console.log(error);
 			});
 	}, []);
 
