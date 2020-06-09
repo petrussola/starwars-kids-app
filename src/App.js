@@ -11,6 +11,7 @@ import Header from './Components/Header';
 import MovieSelector from './Components/MovieSelector';
 import DisplayMovie from './Components/DisplayMovie';
 import SelectedItemKey from './Components/SelectedItemKey';
+import DisplaySelectedImage from './Components/DisplaySelectedImage';
 
 // helpers
 import config from './config';
@@ -20,6 +21,7 @@ function App() {
 	const [selectedMovie, setSelectedMovie] = useState({});
 	const [movieItemsCache, setMovieItemsCache] = useState({});
 	const [selectedItem, setSelectedItem] = useState({});
+	const [selectedImage, setSelectedImage] = useState({});
 
 	useEffect(() => {
 		axios
@@ -59,6 +61,7 @@ function App() {
 				)}
 			/>
 			<Route
+				exact
 				path='/:name'
 				render={(props) => (
 					<SelectedItemKey
@@ -71,6 +74,7 @@ function App() {
 					/>
 				)}
 			/>
+			<Route path='/images/:imageId' component={DisplaySelectedImage} />
 		</div>
 	);
 }

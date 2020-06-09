@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`
 	height: 150px;
@@ -10,14 +11,21 @@ const StyledDiv = styled.div`
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: 50% 50%;
+		object-position: center top;
 	}
 `;
 
-const ItemImage = ({ image }) => {
+const ItemImage = ({ image, location }) => {
 	return (
 		<StyledDiv>
-			<img src={image.contentUrl} alt={image.name} />
+			<Link
+				to={{
+					pathname: `/images/${image.imageId}`,
+					state: { image, prevPath: location.pathname },
+				}}
+			>
+				<img src={image.contentUrl} alt={image.name} />
+			</Link>
 		</StyledDiv>
 	);
 };

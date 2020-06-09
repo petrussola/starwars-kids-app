@@ -42,16 +42,18 @@ const SelectedItemKey = ({
 	selectedMovie,
 	movieItemsCache,
 	setMovieItemsCache,
+	location,
 }) => {
 	useEffect(() => {
 		if (localStorage.getItem('selectedItem') !== null) {
 			const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
-			console.log(selectedItem);
 			setSelectedItem(selectedItem);
 		}
 		// calling bing image search api
 		axiosWithBase()
-			.get(`${baseURL}?q=${selectedItem.name}&safeSearch=strict`)
+			.get(
+				`${baseURL}?q=${selectedItem.name}&safeSearch=Strict&imageType=photo&size=Large`
+			)
 			.then((res) => {
 				// res.data.value is an array , 35 items
 				// data can be found inside the contentUrl property
@@ -88,13 +90,20 @@ const SelectedItemKey = ({
 			<div className='item-info'>
 				<div className='item-images'>
 					{selectedItem.media.map((image) => {
-						return <ItemImage image={image} key={image.contentUrl} />;
+						return (
+							<ItemImage
+								image={image}
+								key={image.contentUrl}
+								location={location}
+							/>
+						);
 					})}
 				</div>
 				<div className='item-properties'>
 					{keys.map((nameProperty) => {
 						return (
 							<SelectedItemValue
+								key={nameProperty}
 								nameProperty={nameProperty}
 								selectedItem={selectedItem}
 								movieItemsCache={movieItemsCache}
