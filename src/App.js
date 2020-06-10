@@ -7,8 +7,8 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 // components
-import Header from './Components/Header';
-import MovieSelector from './Components/MovieSelector';
+import Header from './Components/Header/Header';
+import MovieSelector from './Components/MovieSelector/MovieSelector';
 import DisplayMovie from './Components/DisplayMovie';
 import SelectedItemKey from './Components/SelectedItemKey';
 import DisplaySelectedImage from './Components/DisplaySelectedImage';
@@ -21,7 +21,6 @@ function App() {
 	const [selectedMovie, setSelectedMovie] = useState({});
 	const [movieItemsCache, setMovieItemsCache] = useState({});
 	const [selectedItem, setSelectedItem] = useState({});
-	const [selectedImage, setSelectedImage] = useState({});
 
 	useEffect(() => {
 		axios

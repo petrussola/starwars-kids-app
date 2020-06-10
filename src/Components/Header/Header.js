@@ -5,9 +5,12 @@ const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-    align-items: center;
-    margin: 1rem 2rem;
-    border-bottom: 1px solid #777
+	align-items: center;
+	padding: 1rem 2rem;
+	border-bottom: 1px solid #777;
+	h1 {
+		margin: 0;
+	}
 `;
 
 const Header = () => {

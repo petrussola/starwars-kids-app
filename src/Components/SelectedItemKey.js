@@ -52,7 +52,7 @@ const SelectedItemKey = ({
 		// calling bing image search api
 		axiosWithBase()
 			.get(
-				`${baseURL}?q=${selectedItem.name}&safeSearch=Strict&imageType=photo&size=Large`
+				`${baseURL}?q=${selectedItem.name} movie photo&safeSearch=Strict&imageType=photo&size=Large`
 			)
 			.then((res) => {
 				// res.data.value is an array , 35 items

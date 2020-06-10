@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+const StyledDiv = styled.div`
 	background-color: #3498db;
-	border: 1px solid #3498bd;
-	border-radius: 4px;
-	color: #fff;
+	color: white;
+	min-width: 150px;
+	height: 100px;
 	padding: 1rem;
-	margin: 0 0 1rem 0;
+	margin: 0.5rem;
+	border-radius: 4px;
+	font-size: 2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 `;
 
 const MovieButton = ({ movie, setSelectedMovie }) => {
@@ -16,9 +22,9 @@ const MovieButton = ({ movie, setSelectedMovie }) => {
 	};
 
 	return (
-		<StyledButton value={movie.title} onClick={selectMovie}>
+		<StyledDiv value={movie.title} onClick={selectMovie}>
 			{movie.title}
-		</StyledButton>
+		</StyledDiv>
 	);
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DisplayMovieItem from './DisplayMovieItem';
+import MovieItemButton from './MovieItemButton';
 
 const StyledItems = styled.div`
 	display: flex;
@@ -27,7 +27,7 @@ const DisplayMovie = ({
 			<StyledItems>
 				{selectedMovie.characters.map((item) => {
 					return (
-						<DisplayMovieItem
+						<MovieItemButton
 							item={item}
 							key={item}
 							setMovieItemsCache={setMovieItemsCache}
@@ -41,7 +41,7 @@ const DisplayMovie = ({
 			<StyledItems>
 				{selectedMovie.planets.map((item) => {
 					return (
-						<DisplayMovieItem
+						<MovieItemButton
 							item={item}
 							key={item}
 							setMovieItemsCache={setMovieItemsCache}
@@ -55,7 +55,7 @@ const DisplayMovie = ({
 			<StyledItems>
 				{selectedMovie.starships.map((item) => {
 					return (
-						<DisplayMovieItem
+						<MovieItemButton
 							item={item}
 							key={item}
 							setMovieItemsCache={setMovieItemsCache}
@@ -69,7 +69,7 @@ const DisplayMovie = ({
 			<StyledItems>
 				{selectedMovie.vehicles.map((item) => {
 					return (
-						<DisplayMovieItem
+						<MovieItemButton
 							item={item}
 							key={item}
 							setMovieItemsCache={setMovieItemsCache}

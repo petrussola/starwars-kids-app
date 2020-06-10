@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 const StyledDiv = styled.div`
 	background-color: #3498db;
 	color: white;
-	padding: 0.5rem;
-	margin: 0.2rem;
+	min-width: 150px;
+	padding: 1rem;
+	margin: 0.5rem;
 	border-radius: 4px;
+	font-size: 2rem;
 `;
 
-const DisplayMovieItem = ({
+const MovieItemButton = ({
 	item,
 	movieItemsCache,
 	setMovieItemsCache,
@@ -53,4 +55,4 @@ const DisplayMovieItem = ({
 	);
 };
 
-export default DisplayMovieItem;
+export default MovieItemButton;
