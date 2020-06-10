@@ -2,16 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// components
+import GoBackToItemButton from './GoBackToItemButton';
+
 const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
+	margin: 1rem;
 	.image-container {
 		width: 500px;
 		height: 500px;
 		margin: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 		img {
 			width: 100%;
 			height: 100%;
@@ -27,11 +31,11 @@ const DisplaySelectedImage = (props) => {
 	const { prevPath } = props.location.state;
 	return (
 		<StyledDiv>
-			<Link to={prevPath}>Back to {prevPath.split('/')[1]}</Link>
+			<GoBackToItemButton prevPath={prevPath} />
 			<div className='image-container'>
 				<img src={contentUrl} alt={name} />
 			</div>
-			<Link to={prevPath}>Back</Link>
+			<GoBackToItemButton prevPath={prevPath} />
 		</StyledDiv>
 	);
 };
