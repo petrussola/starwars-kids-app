@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // HELPERS
@@ -18,13 +17,14 @@ const StyledContainer = styled.div`
 	padding: 1rem;
 	.item-info {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		justify-content: center;
 		margin: 1rem auto;
+		width: 100%;
 		.item-images {
 			margin: 1rem auto;
-			width: 75vw;
+			max-width: 65vw;
 			display: flex;
 			flex-flow: row wrap;
 			align-items: center;
@@ -32,7 +32,7 @@ const StyledContainer = styled.div`
 		}
 		.item-properties {
 			margin: 1rem auto;
-			width: 25vw;
+			max-width: 35vw;
 		}
 	}
 `;

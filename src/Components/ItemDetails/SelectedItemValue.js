@@ -1,7 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
 // components
 import SelectedItemValueArrayItem from '../SelectedItemValueArrayItem';
+
+const StyledDiv = styled.div`
+	padding: 0.5rem;
+	font-size: 1rem;
+`;
 
 const SelectedItemValue = ({
 	nameProperty,
@@ -26,11 +32,11 @@ const SelectedItemValue = ({
 		);
 	}
 	return (
-		<div>
+		<StyledDiv>
 			{`${nameProperty[0].toUpperCase()}${nameProperty.slice(1)}: ${
 				selectedItem[nameProperty]
 			}`}
-		</div>
+		</StyledDiv>
 	);
 };
 
