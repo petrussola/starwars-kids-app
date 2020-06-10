@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import SelectedItemValueArrayItem from './SelectedItemValueArrayItem';
+import SelectedItemValueArrayItem from '../SelectedItemValueArrayItem';
 
 const SelectedItemValue = ({
 	nameProperty,

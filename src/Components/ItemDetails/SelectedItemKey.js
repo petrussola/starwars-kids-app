@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // HELPERS
-import { axiosWithBase, baseURL } from '../Axios/axios';
+import { axiosWithBase, baseURL } from '../../Axios/axios';
 
 // COMPONENTS
 import SelectedItemValue from './SelectedItemValue';
 import ItemImage from './ItemImage';
+import GoBackToMovie from './GoBackToMovie';
 
 const StyledContainer = styled.div`
 	display: flex;
@@ -86,7 +87,7 @@ const SelectedItemKey = ({
 	});
 	return (
 		<StyledContainer>
-			<Link to='/'>Back to Movie: {selectedMovie.title}</Link>
+			<GoBackToMovie selectedMovie={selectedMovie} />
 			<div className='item-info'>
 				<div className='item-images'>
 					{selectedItem.media.map((image) => {
@@ -113,7 +114,7 @@ const SelectedItemKey = ({
 					})}
 				</div>
 			</div>
-			<Link to='/'>Back to Movie: {selectedMovie.title}</Link>
+			<GoBackToMovie selectedMovie={selectedMovie} />
 		</StyledContainer>
 	);
 };

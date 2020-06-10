@@ -9,9 +9,9 @@ import './App.css';
 // components
 import Header from './Components/Header/Header';
 import MovieSelector from './Components/MovieSelector/MovieSelector';
-import DisplayMovie from './Components/DisplayMovie';
-import SelectedItemKey from './Components/SelectedItemKey';
-import DisplaySelectedImage from './Components/DisplaySelectedImage';
+import DisplayMovie from './Components/MovieDetails/DisplayMovie';
+import SelectedItemKey from './Components/ItemDetails/SelectedItemKey';
+import DisplaySelectedImage from './Components/ItemDetails/DisplaySelectedImage';
 
 // helpers
 import config from './config';
