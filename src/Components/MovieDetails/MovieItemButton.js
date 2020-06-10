@@ -28,11 +28,13 @@ const MovieItemButton = ({
 			JSON.stringify({ ...char, media: [] })
 		);
 	};
-
+	// the api returns http urls. It will crash in production because site is served from HTTPS.
+	// the code below removes http and replaces it with https
+	const httpsItem = 'https' + item.split('http')[1];
 	useEffect(() => {
 		if (!movieItemsCache[item]) {
 			axios
-				.get(item)
+				.get(httpsItem)
 				.then((res) => {
 					setChar(res.data);
 					// sets the item in the cache
